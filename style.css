@@ -1,0 +1,115 @@
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 100vh;
+  background: rgb(231, 232, 233);
+  background: linear-gradient(
+    135deg,
+    rgba(231, 232, 233, 1) 0%,
+    rgba(234, 236, 239, 1) 100%
+  );
+}
+
+.btn {
+  --size: 240px;
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: var(--size);
+  min-height: var(--size);
+  width: var(--size);
+  height: var(--size);
+
+  border-radius: 100rem;
+  font-size: 80px;
+
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.btn .inner,
+.btn .shadows:before,
+.btn .shadows:after {
+  --size-ratio: 0.5;
+
+  width: calc(var(--size-ratio) * var(--size));
+  height: calc(var(--size-ratio) * var(--size));
+  min-width: calc(var(--size-ratio) * var(--size));
+  min-height: calc(var(--size-ratio) * var(--size));
+
+  border-radius: inherit;
+}
+
+.btn .shadows {
+  border-radius: inherit;
+}
+
+.btn .inner {
+  position: relative;
+  z-index: 2;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #eaebed;
+}
+
+.btn .shadows:before,
+.btn .shadows:after {
+  --pos-margin: 0.3;
+
+  content: "";
+  position: absolute;
+  z-index: 0;
+}
+
+.btn .shadows:before {
+  bottom: calc(var(--pos-margin) * var(--size));
+  right: calc(var(--pos-margin) * var(--size));
+  background-color: #ffffff;
+}
+
+.btn .shadows:after {
+  top: calc(var(--pos-margin) * var(--size));
+  left: calc(var(--pos-margin) * var(--size));
+  background-color: #2e3136;
+}
+
+.btn .blur {
+  --size-ratio: 1.25;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  width: calc(var(--size-ratio) * var(--size));
+  height: calc(var(--size-ratio) * var(--size));
+  min-width: calc(var(--size-ratio) * var(--size));
+  min-height: calc(var(--size-ratio) * var(--size));
+
+  border-radius: inherit;
+
+  backdrop-filter: blur(50px);
+  /* background-color: #bfc0c3; */
+  z-index: 3;
+}
+
+.debug .btn {
+  border: 1px solid red;
+}
+
+.debug.btn .inner,
+.debug.btn:before,
+.debug .btn:after {
+  border: 1px solid red;
+}
+
+.debug .btn .blur {
+  border: 1px solid green;
+}
