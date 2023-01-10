@@ -1,4 +1,5 @@
 main {
+  --clr-primary: #45dfeb;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,6 +15,8 @@ main {
 
 .btn {
   --size: 240px;
+  --clr-shadow-dark: #2e3136;
+  --clr-shadow-light: #ffffff;
 
   position: relative;
   display: inline-flex;
@@ -26,7 +29,8 @@ main {
   height: var(--size);
 
   border-radius: 100rem;
-  font-size: 80px;
+  font-size: 40px;
+  cursor: pointer;
 
   border: none;
   outline: none;
@@ -67,22 +71,23 @@ main {
   content: "";
   position: absolute;
   z-index: 0;
+  transition: background-color 120ms ease;
 }
 
 .btn .shadows:before {
   bottom: calc(var(--pos-margin) * var(--size));
   right: calc(var(--pos-margin) * var(--size));
-  background-color: #ffffff;
+  background-color: var(--clr-shadow-light);
 }
 
 .btn .shadows:after {
   top: calc(var(--pos-margin) * var(--size));
   left: calc(var(--pos-margin) * var(--size));
-  background-color: #2e3136;
+  background-color: var(--clr-shadow-dark);
 }
 
 .btn .blur {
-  --size-ratio: 1.25;
+  --size-ratio: 1.5;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -93,12 +98,40 @@ main {
   min-width: calc(var(--size-ratio) * var(--size));
   min-height: calc(var(--size-ratio) * var(--size));
 
-  border-radius: inherit;
+  /* border-radius: inherit; */
 
   backdrop-filter: blur(50px);
   /* background-color: #bfc0c3; */
   z-index: 3;
 }
+
+.btn .icon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  color: #bfc0c3;
+  text-shadow: -2px -2px 4px transparent;
+  transition: color text-shadow 180ms ease, text-shadow 240ms ease;
+}
+
+/* --------------------------- */
+
+.btn:active .shadows:before {
+  background-color: var(--clr-shadow-dark);
+}
+
+.btn:active .shadows:after {
+  background-color: var(--clr-shadow-light);
+}
+
+.btn:active .icon {
+  color: var(--clr-primary);
+  text-shadow: -2px -2px 6px #45e0eb52;
+}
+
+/* --------------------------- */
 
 .debug .btn {
   border: 1px solid red;
