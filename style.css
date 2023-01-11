@@ -40,7 +40,7 @@ main {
 .btn .inner,
 .btn .shadows:before,
 .btn .shadows:after {
-  --size-ratio: 0.5;
+  --size-ratio: 0.6;
 
   width: calc(var(--size-ratio) * var(--size));
   height: calc(var(--size-ratio) * var(--size));
@@ -66,7 +66,7 @@ main {
 
 .btn .shadows:before,
 .btn .shadows:after {
-  --pos-margin: 0.3;
+  --pos-margin: 0.28;
 
   content: "";
   position: absolute;
@@ -87,7 +87,7 @@ main {
 }
 
 .btn .blur {
-  --size-ratio: 1.5;
+  --size-ratio: 1.4;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -100,7 +100,7 @@ main {
 
   /* border-radius: inherit; */
 
-  backdrop-filter: blur(50px);
+  backdrop-filter: blur(28px);
   /* background-color: #bfc0c3; */
   z-index: 3;
 }
@@ -113,7 +113,7 @@ main {
   z-index: 4;
   color: #bfc0c3;
   text-shadow: -2px -2px 4px transparent;
-  transition: color text-shadow 180ms ease, text-shadow 240ms ease;
+  transition: color 160ms ease, text-shadow 240ms ease;
 }
 
 /* --------------------------- */
@@ -128,7 +128,7 @@ main {
 
 .btn:active .icon {
   color: var(--clr-primary);
-  text-shadow: -2px -2px 6px #45e0eb52;
+  text-shadow: -2px -2px 4px #45e0eb52;
 }
 
 /* --------------------------- */
